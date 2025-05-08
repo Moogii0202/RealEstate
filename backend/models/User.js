@@ -2,17 +2,18 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
+// User model-д
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-}, { timestamps: true });
+  password: { type: String, required: true }
+});
 
-// Хэрэглэгч бүртгэх үед нууц үгийг хаш болгоно
-userSchema.pre('save', async function (next) {
-  if (!this.isModified('password')) return next();
-  const salt = await bcrypt.genSalt(10);
-  this.password = await bcrypt.hash(this.password, salt);
+// Хэрэглэгч үүсгэхээс өмнө password-ийг hash хийх
+userSchema.pre('save', async function(next) {
+  if (this.isModified('password')) {
+    this.password = await bcrypt.hash(this.password, 10); // 10 бол salt rounds
+  }
   next();
 });
 
