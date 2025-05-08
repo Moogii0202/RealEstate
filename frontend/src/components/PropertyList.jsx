@@ -49,9 +49,10 @@ const handleClick = () => {
       <div className='bg-green-500  rounded-lg mb-5 w-full'>
 
       <div className='bg-gray-100 p-5 rounded-lg mx-1 w-auto flex flex-row justify-between items-center'>     
-      <h2 className='font-bold text-green-800'>Property List</h2>
-      <p className='text-gray-600'>Hi! can you add properties</p>
-      <button onClick={handleClick} className='px-4 py-2 bg-green-700 rounded-md text-white hover:scale-95 hover:bg-green-600' >add Property</button>
+      <h2 className='font-bold text-green-800'>Үл хөдлөх </h2>
+      <p className='text-gray-600'>үл хөдлөх хөрөнгийн товч мэдээлэл
+      </p>
+      <button onClick={handleClick} className='px-4 py-2 bg-green-700 rounded-md text-white hover:scale-95 hover:bg-green-600' >үл хөдлөх нэмэх</button>
       </div>
      
       </div>

@@ -79,7 +79,7 @@ const PropertyForm = () => {
   };
 
   return (
-    <div className="p-4 pl-[16vw] max-md:pl-[21vw]">
+    <div className="">
       <div className='bg-green-500 rounded-lg mb-5 w-full'>
         <div className='bg-gray-100 p-5 rounded-lg mx-1 w-auto flex flex-row justify-between items-center'>
           <h2 className='font-bold text-green-800'>Property Form</h2>

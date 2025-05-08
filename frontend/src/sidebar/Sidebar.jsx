@@ -12,22 +12,22 @@ export default function SideBars() {
   const [select, setSelect] = useState(sideId);
 
   const navItems = [
-    { id: 1, label: "Dashboard", icon: <AiOutlineDashboard />, path: "/" },
-    { id: 2, label: "My Property", icon: <FaBuilding />, path: "/" },
-    { id: 3, label: "To do", icon: <FaTasks />, path: "/" },
-    { id: 4, label: "Tenants", icon: <FaUsers />, path: "/" },
-    { id: 5, label: "Agents", icon: <FaUserTie />, path: "/" },
-    { id: 6, label: "Reviews", icon: <FaRegCommentDots />, path: "/" },
-    { id: 7, label: "Messages", icon: <BiMessageAlt />, path: "/" },
-    { id: 8, label: "Calendar", icon: <FaCalendarAlt />, path: "/" },
-    { id: 9, label: "Updates", icon: <FaBell />, path: "/" },
+    { id: 1, label: "Үл хөдлөх хөрөнгүүд", icon: <AiOutlineDashboard />, path: "/properties" },
+    { id: 2, label: "Миний үл хөдлөх", icon: <FaBuilding />, path: "/properties" },
+    { id: 3, label: "Төлөвлөлт", icon: <FaTasks />, path: "/properties" },
+    { id: 4, label: "Түрээслэгч", icon: <FaUsers />, path: "/properties" },
+    { id: 5, label: "Агент", icon: <FaUserTie />, path: "/properties" },
+    { id: 6, label: "Тайлан", icon: <FaRegCommentDots />, path: "/properties" },
+    { id: 7, label: "Мессэж", icon: <BiMessageAlt />, path: "/properties" },
+    { id: 8, label: "Календар", icon: <FaCalendarAlt />, path: "/properties" },
+    { id: 9, label: "Засвар", icon: <FaBell />, path: "/properties" },
   ];
 
   return (
     <div className="fixed top-0 left-0 w-60 h-full bg-green-100 flex flex-col justify-between items-center border-r px-4 py-2 z-50 max-md:w-40">
       {/* Logo */}
       <div className="w-full mb-4">
-        <h2 className="text-xl font-bold text-green-900 px-2">🏠 HomFinder</h2>
+        <h2 className="text-xl font-bold text-green-900 px-2">🏠 Үл хөдлөх</h2>
       </div>
 
       {/* Menu */}
@@ -60,7 +60,7 @@ export default function SideBars() {
         </div>
         <button className=" flex items-center gap-2 bg-green-700 text-white px-4 py-2 rounded-lg hover:bg-green-800 text-sm">
           <FiLogOut />
-          Log Out
+          Гарах
         </button>
       </div>
     </div>
