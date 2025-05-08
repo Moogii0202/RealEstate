@@ -16,7 +16,7 @@ const Login = () => {
       const res = await axios.post('http://localhost:5001/api/auth/login', formData);
       localStorage.setItem('token', res.data.token);
       alert('Амжилттай нэвтэрлээ!');
-      navigate('/');
+      navigate('/propperties');
     } catch (err) {
       alert('Нэвтрэхэд алдаа гарлаа: ' + err.response.data.message);
     }

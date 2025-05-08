@@ -1,16 +1,41 @@
 const Property = require('../models/property');
 
-// Create Property
 exports.createProperty = async (req, res) => {
   try {
-    const property = new Property(req.body);
+    const {
+      title, description, price, location, district, khoroo,
+      rooms, area, buildingFloor, unitFloor, builtYear,
+      paymentType, elevator, phone
+    } = req.body;
+
+    const property = new Property({
+      title,
+      description,
+      price,
+      location,
+      district,
+      khoroo,
+      rooms,
+      area,
+      buildingFloor,
+      unitFloor,
+      builtYear,
+      paymentType,
+      elevator,
+      phone,
+      image: req.file ? {
+        data: req.file.buffer,
+        contentType: req.file.mimetype
+      } : undefined
+    });
+
     await property.save();
     res.status(201).json(property);
   } catch (error) {
+    console.error('Image upload error:', error);
     res.status(500).json({ message: error.message });
   }
 };
-
 // Get All Properties
 exports.getProperties = async (req, res) => {
   try {
