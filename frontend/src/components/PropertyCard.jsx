@@ -30,6 +30,7 @@ const PropertyCard = ({ property }) => {
       </section>
       <p className='font-bold text-lg text-green-700'>{property.price.toLocaleString()}₮</p>
       <StarRating rating={4.5} />
+
     </div>
     {/* description */}
     <div className='w-auto max-md:hidden'>
@@ -37,6 +38,7 @@ const PropertyCard = ({ property }) => {
       <div className='flex justify-center items-center h-full'>
     <p className='text-gray-500 text-sm '>{truncateText(property.description, 10)}</p>
       </div>
+      <p></p>
     </div>
     {/* delete update icons */}
     <div className='w-auto items-center'>

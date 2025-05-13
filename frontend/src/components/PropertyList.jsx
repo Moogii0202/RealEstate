@@ -14,11 +14,23 @@ const PropertyList = () => {
   useEffect(() => {
     API.get('/properties')
       .then((res) => {
-        setProperties(res.data);
-        setFiltered(res.data);
+       const processed=res.data.map((property) => {
+        if(property.image && property.image.data && Array.isArray(property.image.data.data)&& property.image.contentType){
+          const byteArray = new Uint8Array(property.image.data.data);
+        const base64String = btoa(
+          byteArray.reduce((data, byte) => data + String.fromCharCode(byte), '')
+        );
+        property.image = `data:${property.image.contentType};base64,${base64String}`;
+        }
+        return property;
+       });
+        setProperties(processed);
+        setFiltered(processed);
       })
       .catch((err) => console.error(err));
+      
   }, []);
+
 
   useEffect(() => {
     let results = properties;

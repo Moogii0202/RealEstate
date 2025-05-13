@@ -62,11 +62,23 @@ exports.getPropertyById = async (req, res) => {
 // Update Property
 exports.updateProperty = async (req, res) => {
   try {
-    const property = await Property.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    if (!property) {
-      return res.status(404).json({ message: 'Property not found' });
-    }
-    res.status(200).json(property);
+    const updateFields = { ...req.body };
+
+  if (req.file) {
+    updateFields.image = {
+      data: req.file.buffer,
+      contentType: req.file.mimetype
+    };
+  }
+
+  await Property.findByIdAndUpdate(req.params.id, updateFields);
+  res.send({ success: true });
+    // const property = await Property.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    // if (!property) {
+    //   return res.status(404).json({ message: 'Property not found' });
+    // }
+    
+     res.status(200).json(Property);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

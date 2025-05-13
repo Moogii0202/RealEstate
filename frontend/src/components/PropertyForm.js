@@ -169,6 +169,7 @@ const PropertyForm = () => {
                 ))}
             </select>
           </div>
+          {/* Өрөөний тоо */}
           <div className="flex flex-col">
   <label className="text-sm font-medium text-gray-700">Өрөөний тоо</label>
   <select
